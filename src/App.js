@@ -26,10 +26,10 @@ function App() {
 
             <div className="glass-card mt-4 content">
               <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/portfolio" component={Portfolio} />
-                <Route path="/blog" component={Blog} />
+                <Route path="/React-Portfolio/" exact component={Home} />
+                <Route path="/React-Portfolio/resume" component={Resume} />
+                <Route path="/React-Portfolio/portfolio" component={Portfolio} />
+                <Route path="/React-Portfolio/blog" component={Blog} />
               </Switch>
             </div>
 

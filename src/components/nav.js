@@ -13,17 +13,17 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link to="/resume">
+            <Link to="/React-Portfolio/resume">
               Resume
             </Link>
           </li>
           <li>
-            <Link to="/portfolio">
+            <Link to="/React-Portfolio/portfolio">
               Portfolio
             </Link>
           </li>
           <li>
-            <Link to="/blog">
+            <Link to="/React-Portfolio/blog">
               Blog
             </Link>
           </li>
