@@ -106,7 +106,7 @@
             "screenshot": "img/projects/mobile/student_planner.png",
             "date": "2020",
             "description": "Subject scheduler app for student with notes functionality and tells the user what's the next subject and the remaining time before it starts.",
-            "status": "available",
+            "status": "unavailable",
             "tag": "mobile"
         },
         {
@@ -165,7 +165,7 @@
         },
         {
             "key": 19,
-            "project": "Gamblexx",
+            "project": "Gamblerxx",
             "screenshot": "img/projects/mobile/gamblerxx.png",
             "date": "2018",
             "description": "Single player gambling app with cool classic mechanics and games.",

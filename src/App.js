@@ -41,13 +41,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* <div className="App">
-            <Nav />
-        <Switch>
-                <Route path="/about" exact component={About} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
-      </div> */}
     </Router >
   );
 }

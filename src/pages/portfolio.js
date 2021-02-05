@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 function Portfolio() {
+    const numberOfProjectsToDisplay = 6;
     const [projects, setProjects] = useState({});
     const [visibleProjects, setVisibleProjects] = useState([]);
-    const [category, setCatagory] = useState("all");
-    const [itemCount, setItemCount] = useState(9);
-    // const projectCount = {
-    //     "web": 0, "mobile": 0, "others": 0,
-    // };
+    const [itemCount, setItemCount] = useState(numberOfProjectsToDisplay);
 
+    // Get projects object json from the projects
+    // json file inside public  directory
     const getProjects = () => {
         fetch(
             'json/projects.json',
@@ -24,37 +23,37 @@ function Portfolio() {
             }
         ).then(function (jsonData) {
             setProjects(jsonData);
+            // Join all projects and set it to visible projects by default
             setVisibleProjects([].concat(jsonData.others).concat(jsonData.web).concat(jsonData.mobile));
         });
     };
 
-    // const checkProjectCount = () =>  {
-        // projects.forEach(project => {
-        //     console.log(project.tag === "web");
-            // if (project.tag === "web") {
-            //     projectCount.web += 1;
-            // }
-            // else if (project.tag === "mobile") {
-            //     projectCount.mobile += 1;
-            // }
-            // else if (project.tag === "others") {
-            //     projectCount.others += 1;
-            // }
-        // });
-    // }
 
+    // Set visible projects from selected category and
+    // join all projects if select all from the tab menu
     const getByCategory = (e) => {
-        setCatagory(e.target.id.replaceAll("menu_", ""));
-        setItemCount(9);
+        // Get the id of the selected category and remove the menu_ so
+        // it will reburn just (mobile, web, others, all)
+        const selectedCategory = e.target.id.replaceAll("menu_", "");
+        setItemCount(numberOfProjectsToDisplay); // Set numbers of items to be displayed by default 
+
+        if (selectedCategory !== "all") {
+            // Set visible projects to the selected category
+            setVisibleProjects(projects[selectedCategory]);
+        } else {
+            // Join all projects to visible projects
+            setVisibleProjects([].concat(projects.others).concat(projects.web).concat(projects.mobile));
+        }
     };
 
+    // Increase number of items to be displayed
     const loadMoreProjects = (e) => {
-        setItemCount(itemCount + 9);
+        setItemCount(itemCount + numberOfProjectsToDisplay);
     };
 
+    // On page load
     useEffect(() => {
         getProjects();
-        // checkProjectCount();
     }, []);
 
     return (
@@ -75,44 +74,44 @@ function Portfolio() {
                 <div class="p-3">
                     <div class="row">
                         {
-                            visibleProjects.map(project =>
+                            // Display all the visible projects and limit
+                            // the number of projects by item count
+                            visibleProjects.slice(0, itemCount).map(project =>
                             (
-                                // (category === "all" || category === project.tag) && itemCount - 1 >= project.key ?
-                                    <div class="col-md-4 mt-3 animated bounceIn" key={project.key}>
-                                        <div class="card p-0 h-100">
-                                            <div class="card-header p-0">
-                                                <img src={project.screenshot} alt="" class="img-fluid" />
-                                            </div>
-                                            <div class="card-body p-2">
-                                                <p class="font-weight-bold mb-0">
-                                                    {project.project} <small>( {project.date} )</small>
-                                                    {
-                                                        project.status === "unavailable" ?
-                                                            <span className="ion-android-lock ml-2"></span>
-                                                            : <span className="ion-social-github ml-2"></span>
-                                                    }
-                                                </p>
-                                                <span>{project.description}</span>
-                                            </div>
+                                <div class="col-md-4 mt-3 animated bounceIn" key={project.key}>
+                                    <div class="card p-0 h-100">
+                                        <div class="card-header p-0">
+                                            <img src={project.screenshot} alt="" class="img-fluid" />
+                                        </div>
+                                        <div class="card-body p-2">
+                                            <p class="font-weight-bold mb-0">
+                                                {project.project} <small>( {project.date} )</small>
+                                                {
+                                                    project.status === "unavailable" ?
+                                                        <span className="ion-android-lock ml-2"></span>
+                                                        : <span className="ion-social-github ml-2"></span>
+                                                }
+                                            </p>
+                                            <span>{project.description}</span>
                                         </div>
                                     </div>
-                                    // : <div key={project.key}></div>
+                                </div>
                             ))
                         }
                     </div>
 
-                    {/* {
-                        (itemCount - 1) + 9 <= 20 ?
+
+                    {
+                        // If itemCount is less than number of visible projects
+                        // you can increase the number of projects to be displayed
+                        itemCount < visibleProjects.length ?
                             <div className="row">
                                 <div className="col-md display-centerx">
-                                    <button className="btn btn-info mt-3 px-4" onClick={loadMoreProjects}>Load more</button>
+                                    <button className="btn btn-info my-5 px-4" onClick={loadMoreProjects}>Load more</button>
                                 </div>
                             </div>
-                            : <div className="">
-                                {projectCount.mobile}
-
-                            </div>
-                    } */}
+                            : <div className=""></div>
+                    }
                 </div>
             </section>
         </div>
