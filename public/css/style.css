@@ -42,7 +42,6 @@ section {
 
 .nav .nav-menu li {
   float: left;
-  margin-right: 30px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -52,12 +51,32 @@ section {
           align-items: center;
 }
 
+.nav .nav-menu li a {
+  padding: 0 20px;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.nav .nav-menu li :hover {
+  background: #e9fff8;
+}
+
 .nav .nav-menu li:first-child {
   background: #00AA71;
   color: white;
   height: 100%;
   padding: 8px 15px;
   font-size: 26px;
+}
+
+.nav .nav-menu li:first-child a {
+  padding: 0;
+}
+
+.nav .nav-menu li:first-child a i:hover,
+.nav .nav-menu li:first-child a:hover {
+  background: #00AA71 !important;
 }
 
 .nav .social-menu ul li {
@@ -86,6 +105,10 @@ section {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.nav-menu-active {
+  background: #ccffef;
 }
 
 .side-bar {
@@ -275,6 +298,10 @@ section {
 
 #resume .key-points {
   margin-top: 50px;
+}
+
+#portfolio .nav-tab ul li.active {
+  border-bottom: 3px solid #00AA71;
 }
 
 .display-none {

@@ -1,14 +1,14 @@
 import React from 'react';
 // import './../App.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav>
       <div className="nav">
         <ul className="nav-menu list-unstyled mb-0">
-          <li>
-            <Link to="/">
+          {/* <li>
+            <Link to="/React-Portfolio/">
               <i className="ion-home text-white"></i>
             </Link>
           </li>
@@ -26,6 +26,26 @@ function Nav() {
             <Link to="/React-Portfolio/blog">
               Blog
             </Link>
+          </li> */}
+          <li>
+            <NavLink exact to="/">
+              <i className="ion-home text-white"></i>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/resume" className="display-center" activeClassName="nav-menu-active">
+              Resume
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/portfolio" className="display-center" activeClassName="nav-menu-active">
+              Portfolio
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blog" className="display-center" activeClassName="nav-menu-active">
+              Blog
+            </NavLink>
           </li>
         </ul>
 

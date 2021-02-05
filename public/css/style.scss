@@ -3,6 +3,8 @@ $socialColors: #333,
 #038cc2,
 #f56040;
 $primary: #00AA71;
+$primaryLight: #ccffef;
+$primaryVeryLight: #e9fff8;
 $orange: #efc84a;
 * {
     margin: 0;
@@ -43,10 +45,18 @@ section {
     .nav-menu {
         li {
             float: left;
-            margin-right: 30px;
             height: 100%;
             display: flex;
             align-items: center;
+            a {
+                padding: 0 20px;
+                height: 100%;
+                text-decoration: none;
+                color: black;
+            }
+        }
+        li :hover {
+            background: $primaryVeryLight;
         }
         li:first-child {
             background: $primary;
@@ -54,6 +64,13 @@ section {
             height: 100%;
             padding: 8px 15px;
             font-size: 26px;
+            a {
+                padding: 0;
+            }
+            a i:hover,
+            a:hover {
+                background: $primary !important;
+            }
         }
     }
     .social-menu {
@@ -76,6 +93,10 @@ section {
             }
         }
     }
+}
+
+.nav-menu-active {
+    background: $primaryLight;
 }
 
 .side-bar {
@@ -240,6 +261,13 @@ section {
 #resume {
     .key-points {
         margin-top: 50px;
+    }
+}
+
+// ---------------------- PORTFOLIO ----------------------
+#portfolio {
+    .nav-tab ul li.active {
+        border-bottom: 3px solid $primary;
     }
 }
 

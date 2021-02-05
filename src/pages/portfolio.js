@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 function Portfolio() {
-    const [projects, setProjects] = useState([]);
+    const [projects, setProjects] = useState({});
+    const [visibleProjects, setVisibleProjects] = useState([]);
     const [category, setCatagory] = useState("all");
-    
-    const getProjects = ()=>{
+    const [itemCount, setItemCount] = useState(9);
+    // const projectCount = {
+    //     "web": 0, "mobile": 0, "others": 0,
+    // };
+
+    const getProjects = () => {
         fetch(
             'json/projects.json',
             {
@@ -14,22 +19,43 @@ function Portfolio() {
                 }
             }
         ).then(
-            function(response){
+            function (response) {
                 return response.json();
             }
-        ).then(function(jsonData){
-            console.log(jsonData);
+        ).then(function (jsonData) {
             setProjects(jsonData);
+            setVisibleProjects([].concat(jsonData.others).concat(jsonData.web).concat(jsonData.mobile));
         });
     };
-    
+
+    // const checkProjectCount = () =>  {
+        // projects.forEach(project => {
+        //     console.log(project.tag === "web");
+            // if (project.tag === "web") {
+            //     projectCount.web += 1;
+            // }
+            // else if (project.tag === "mobile") {
+            //     projectCount.mobile += 1;
+            // }
+            // else if (project.tag === "others") {
+            //     projectCount.others += 1;
+            // }
+        // });
+    // }
+
     const getByCategory = (e) => {
         setCatagory(e.target.id.replaceAll("menu_", ""));
+        setItemCount(9);
     };
 
-    useEffect(()=>{
+    const loadMoreProjects = (e) => {
+        setItemCount(itemCount + 9);
+    };
+
+    useEffect(() => {
         getProjects();
-    },[]);
+        // checkProjectCount();
+    }, []);
 
     return (
         <div id="portfolio" class="">
@@ -39,7 +65,7 @@ function Portfolio() {
                 </h4>
                 <div class="nav-tab pt-2 px-3 pb-4 mt-2 crv-8 bg-light">
                     <ul class="list-unstyled mb-4">
-                        <li class="float-left mr-3 btn py-2" id="menu_all" onClick={getByCategory}>All</li>
+                        <li class="float-left mr-3 btn py-2 active" id="menu_all" onClick={getByCategory}>All</li>
                         <li class="float-left mr-3 btn py-2" id="menu_web" onClick={getByCategory}>Websites</li>
                         <li class="float-left mr-3 btn py-2" id="menu_mobile" onClick={getByCategory}>Mobile Apps</li>
                         <li class="float-left mr-3 btn py-2" id="menu_others" onClick={getByCategory}>Others</li>
@@ -49,9 +75,9 @@ function Portfolio() {
                 <div class="p-3">
                     <div class="row">
                         {
-                            projects.map(project =>
+                            visibleProjects.map(project =>
                             (
-                                category === "all" || category === project.tag ?
+                                // (category === "all" || category === project.tag) && itemCount - 1 >= project.key ?
                                     <div class="col-md-4 mt-3 animated bounceIn" key={project.key}>
                                         <div class="card p-0 h-100">
                                             <div class="card-header p-0">
@@ -70,10 +96,23 @@ function Portfolio() {
                                             </div>
                                         </div>
                                     </div>
-                                    : <div key={project.key}></div>
+                                    // : <div key={project.key}></div>
                             ))
                         }
                     </div>
+
+                    {/* {
+                        (itemCount - 1) + 9 <= 20 ?
+                            <div className="row">
+                                <div className="col-md display-centerx">
+                                    <button className="btn btn-info mt-3 px-4" onClick={loadMoreProjects}>Load more</button>
+                                </div>
+                            </div>
+                            : <div className="">
+                                {projectCount.mobile}
+
+                            </div>
+                    } */}
                 </div>
             </section>
         </div>

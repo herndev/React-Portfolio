@@ -20,16 +20,20 @@ function App() {
             <ContactForm />
           </div>
           <div className="col-lg-9 col-md-8">
-            <div className="glass-card">
+            <div className="glass-card bg-white">
               <Nav />
             </div>
 
-            <div className="glass-card mt-4 content">
+            <div className="glass-card mt-4 content bg-white">
               <Switch>
-                <Route path="/React-Portfolio/" exact component={Home} />
+                {/* <Route path="/React-Portfolio/" exact component={Home} />
                 <Route path="/React-Portfolio/resume" component={Resume} />
                 <Route path="/React-Portfolio/portfolio" component={Portfolio} />
-                <Route path="/React-Portfolio/blog" component={Blog} />
+                <Route path="/React-Portfolio/blog" component={Blog} /> */}
+                <Route path="/" exact component={Home} />
+                <Route path="/resume" component={Resume} />
+                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/blog" component={Blog} />
               </Switch>
             </div>
 

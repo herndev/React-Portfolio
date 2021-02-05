@@ -15,4 +15,9 @@ $(function() {
         $(rIcon).removeClass("active");
         $(rTitle).removeClass("active");
     });
+
+    $("#portfolio .nav-tab ul li").on("click", function() {
+        $("#portfolio .nav-tab ul li").removeClass("active");
+        $("#" + this.id).addClass("active");
+    });
 });
