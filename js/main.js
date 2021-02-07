@@ -15,4 +15,13 @@ $(function() {
         $(rIcon).removeClass("active");
         $(rTitle).removeClass("active");
     });
+
+    $("body").on("click", "#portfolio .nav-tab ul li", function() {
+        $("#portfolio .nav-tab ul li").removeClass("active");
+        $("#" + this.id).addClass("active");
+    });
+
+    $("body").on("click", ".nav-item", function() {
+        $("#navbarCollapse").removeClass("show");
+    });
 });
