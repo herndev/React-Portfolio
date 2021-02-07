@@ -57,34 +57,34 @@ function Portfolio() {
     }, []);
 
     return (
-        <div id="portfolio" class="">
-            <section class="p-3">
-                <h4 class="font-weight-bold text-primary-default display-inline">
+        <div id="portfolio" className="">
+            <section className="p-3">
+                <h4 className="font-weight-bold text-primary-default display-inline">
                     Portfolio
                 </h4>
-                <div class="nav-tab pt-2 px-3 pb-4 mt-2 crv-8 bg-light">
-                    <ul class="list-unstyled mb-4">
-                        <li class="float-left mr-3 btn py-2 active" id="menu_all" onClick={getByCategory}>All</li>
-                        <li class="float-left mr-3 btn py-2" id="menu_web" onClick={getByCategory}>Websites</li>
-                        <li class="float-left mr-3 btn py-2" id="menu_mobile" onClick={getByCategory}>Mobile Apps</li>
-                        <li class="float-left mr-3 btn py-2" id="menu_others" onClick={getByCategory}>Others</li>
+                <div className="nav-tab p-1 px-3 mt-3 crv-8 bg-light">
+                    <ul className="list-unstyled list-inline mb-0">
+                        <li className="list-inline-item mr-3 btn py-2 active" id="menu_all" onClick={getByCategory}>All</li>
+                        <li className="list-inline-item mr-3 btn py-2" id="menu_web" onClick={getByCategory}>Websites</li>
+                        <li className="list-inline-item mr-3 btn py-2" id="menu_mobile" onClick={getByCategory}>Mobile Apps</li>
+                        <li className="list-inline-item mr-3 btn py-2" id="menu_others" onClick={getByCategory}>Others</li>
                     </ul>
                 </div>
 
-                <div class="p-3">
-                    <div class="row">
+                <div className="p-3">
+                    <div className="row">
                         {
                             // Display all the visible projects and limit
                             // the number of projects by item count
                             visibleProjects.slice(0, itemCount).map(project =>
                             (
-                                <div class="col-md-4 mt-3 animated bounceIn" key={project.key}>
-                                    <div class="card p-0 h-100">
-                                        <div class="card-header p-0">
-                                            <img src={project.screenshot} alt="" class="img-fluid" />
+                                <div className="col-lg-4 col-md-6 mt-3 animated bounceIn" key={project.key}>
+                                    <div className="card p-0 h-100">
+                                        <div className="card-header p-0">
+                                            <img src={project.screenshot} alt="" className="img-fluid" />
                                         </div>
-                                        <div class="card-body p-2">
-                                            <p class="font-weight-bold mb-0">
+                                        <div className="card-body p-2">
+                                            <p className="font-weight-bold mb-0">
                                                 {project.project} <small>( {project.date} )</small>
                                                 {
                                                     project.status === "unavailable" ?

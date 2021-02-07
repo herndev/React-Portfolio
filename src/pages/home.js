@@ -1,9 +1,36 @@
 import React from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import TinySlider from "tiny-slider-react";
 
 function Home() {
+  const projects = {
+    "web": 13,
+    "mobile": 34,
+  };
+
+  const settings = {
+    lazyload: true,
+    nav: false,
+    mouseDrag: true,
+    controls: false,
+    items: 3,
+    slideBy: 1,
+    autoplay: true,
+    loop: true,
+    autoplayTimeout: 10000,
+    autoplayHoverPause: true,
+    responsive: {
+      "0":{
+        items: 1
+      },
+      "990":{
+        items: 2
+      },
+      "1400":{
+        items: 3
+      }
+    }
+  };
+
   return (
     <div id="home">
       <section className="display-center text-center">
@@ -25,7 +52,7 @@ function Home() {
           </h1>
         <div className="row px-3">
           <div className="col-md">
-            <OwlCarousel className="carousel owl-carousel" loop autoplay autoplayHoverPause autoplayTimeout={10000} margin={10} items={3} nav={false}>
+            <TinySlider settings={settings}>
               <div className="item">
                 <div className="card sh-s">
                   <div className="card-title">
@@ -78,35 +105,37 @@ function Home() {
                               </p>
                 </div>
               </div>
-            </OwlCarousel>
+            </TinySlider>
           </div>
         </div>
       </section>
 
-      <section className="p-3 project-counter-container">
+      <section className="p-3 project-counter-container display-centery">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-lg-6 hidden-lg">
             <div className="w-100 display-centerx">
               <img src="img/illustrator_holding_poster.png" alt="" className="img-fluid project-counter-banner" />
             </div>
             <div className="w-100 display-centerx">
               <div className="w-100 card text-center mt-4 project-counter crv-8 bx-shadow">
                 <table>
-                  <tr className="text-white">
-                    <th>Websites</th>
-                    <th>Mobile Apps</th>
-                    <th>Total</th>
-                  </tr>
-                  <tr>
-                    <td>36</td>
-                    <td>32</td>
-                    <td>68</td>
-                  </tr>
+                  <tbody>
+                    <tr className="text-white">
+                      <th>Websites</th>
+                      <th>Mobile Apps</th>
+                      <th>Total</th>
+                    </tr>
+                    <tr>
+                      <td className="py-2">{projects.web}</td>
+                      <td className="py-2">{projects.mobile}</td>
+                      <td className="py-2">{projects.web + projects.mobile}</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
           </div>
-          <div className="col-md-6 px-5 display-centery">
+          <div className="col-lg-6 px-5 display-centery">
             <h2 data-aos="fade-up" data-aos-delay="300">
               <span className="text-warning font-weight-bold mr-1">L</span>et me help you build your <span className="text-info">plans</span> and make it <span className="text-danger">possible</span>.
                   </h2>

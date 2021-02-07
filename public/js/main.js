@@ -16,8 +16,12 @@ $(function() {
         $(rTitle).removeClass("active");
     });
 
-    $("#portfolio .nav-tab ul li").on("click", function() {
+    $("body").on("click", "#portfolio .nav-tab ul li", function() {
         $("#portfolio .nav-tab ul li").removeClass("active");
         $("#" + this.id).addClass("active");
+    });
+
+    $("body").on("click", ".nav-item", function() {
+        $("#navbarCollapse").removeClass("show");
     });
 });
