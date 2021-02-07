@@ -26,7 +26,7 @@ function Nav() {
                 </NavLink>
               </li>
               <li className="list-inline-item m-0">
-                <NavLink to="/contact" className="display-centery px-4 nav-item nav-link visible-lg pt-2" activeClassName="nav-menu-active">
+                <NavLink to="/contact" className="display-centery px-4 nav-item nav-link visible-md pt-2" activeClassName="nav-menu-active">
                   Contact
                 </NavLink>
               </li>
@@ -34,12 +34,12 @@ function Nav() {
               <hr/>
             <div className="social-menu form-inline ml-auto">
               <ul className="list-unstyled mb-0 list-inline social-icons">
-                <li className="list-inline-item"><a target="_blank" href="https://facebook.com/dota500"><i className="ion-social-facebook"></i></a></li>
-                <li className="list-inline-item"><a target="_blank" href="https://github.com/herndev"><i className="ion-social-github"></i></a></li>
-                <li className="list-inline-item"><a target="_blank" href="https://twitter.com/herndev"><i className="ion-social-twitter"></i></a></li>
-                <li className="list-inline-item"><a target="_blank" href="https://instagram.com/hern.dev"><i className="ion-social-instagram"></i></a></li>
+                <li className="list-inline-item"><a target="_blank" rel="noopener noreferrer" href="https://facebook.com/dota500"><i className="ion-social-facebook"></i></a></li>
+                <li className="list-inline-item"><a target="_blank" rel="noopener noreferrer" href="https://github.com/herndev"><i className="ion-social-github"></i></a></li>
+                <li className="list-inline-item"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/herndev"><i className="ion-social-twitter"></i></a></li>
+                <li className="list-inline-item"><a target="_blank" rel="noopener noreferrer" href="https://instagram.com/hern.dev"><i className="ion-social-instagram"></i></a></li>
               </ul>
-              <button className="btn btn-success m-2 font-weight-bold crv-25 px-3">Hire Me !</button>
+              <a href="mailto:herniejabien45@gmail.com" className="btn btn-success m-2 font-weight-bold crv-25 px-3">Hire Me !</a>
             </div>
           </div>
         </div>
