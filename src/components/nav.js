@@ -6,7 +6,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light sticky-top">
       <div className="container-fluid">
-        <NavLink exact to="/" className="link goto-home">
+        <NavLink exact to="/React-Portfolio/" className="link goto-home">
           <i className="ion-home text-white"></i>
         </NavLink>
         <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
