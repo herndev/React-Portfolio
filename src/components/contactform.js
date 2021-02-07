@@ -9,9 +9,9 @@ function ContactForm() {
 
     emailjs.sendForm('service_p3bfvq8', 'template_i5umn44', e.target, 'user_9pofpzKwEJ94jh4BSM9PR')
       .then((result) => {
-        console.log(result.text);
+        alert("Message sent\n Status: " + result.text);
       }, (error) => {
-        console.log(error.text);
+        alert("Message not sent\n Status: " + error.text);
       });
 
     e.target.reset();

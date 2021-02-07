@@ -28,10 +28,10 @@ function App() {
 
             <div className="glass-card mt-4 content bg-white rm-md-0">
               <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/portfolio" component={Portfolio} />
-                <Route path="/contact" component={Contact} />
+                <Route path="/React-Portfolio/" exact component={Home} />
+                <Route path="/React-Portfolio/resume" component={Resume} />
+                <Route path="/React-Portfolio/portfolio" component={Portfolio} />
+                <Route path="/React-Portfolio/contact" component={Contact} />
               </Switch>
             </div>
 

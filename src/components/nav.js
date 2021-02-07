@@ -16,17 +16,17 @@ function Nav() {
           <div className="navbar-nav w-100">
             <ul className="nav-menu list-unstyled mb-0 list-inline">
               <li className="list-inline-item m-0">
-                <NavLink to="/resume" className="display-centery px-4 nav-item nav-link" activeClassName="nav-menu-active">
+                <NavLink to="/React-Portfolio/resume" className="display-centery px-4 nav-item nav-link" activeClassName="nav-menu-active">
                   Resume
                 </NavLink>
               </li>
               <li className="list-inline-item m-0">
-                <NavLink to="/portfolio" className="display-centery px-4 nav-item nav-link" activeClassName="nav-menu-active">
+                <NavLink to="/React-Portfolio/portfolio" className="display-centery px-4 nav-item nav-link" activeClassName="nav-menu-active">
                   Portfolio
                 </NavLink>
               </li>
               <li className="list-inline-item m-0">
-                <NavLink to="/contact" className="display-centery px-4 nav-item nav-link visible-md pt-2" activeClassName="nav-menu-active">
+                <NavLink to="/React-Portfolio/contact" className="display-centery px-4 nav-item nav-link visible-md pt-2" activeClassName="nav-menu-active">
                   Contact
                 </NavLink>
               </li>

@@ -65,7 +65,7 @@ function Resume() {
 
       <section className="bg-light p-3">
         <div className="row">
-          <div className="col-md-6 display-centery">
+          <div className="col-md-6 display-centery mb-3">
             <div className="w-100 px-3">
               <h5 className="font-weight-bold underline-primary display-inline">PERSONAL INFO</h5>
               <p className="mt-4 mb-2">
